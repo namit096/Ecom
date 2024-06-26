@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #f9f9f9;
+        }
+        strong {
+            font-weight: bold;
+        }
+    </style>
+    {% comment %} <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        h1 {
+            font-size: 24px; /* Larger font size for the title */
+            font-weight: bold; /* Bold font weight for the title */
+        }
+        .variant-title {
+            font-size: 18px; /* Larger font size for the variant title */
+            font-weight: bold; /* Bold font weight for the variant title */
+        }
+    </style> {% endcomment %}
+</head>
+<body>
+    <h1>List of Variants</h1>
+    <ul>
+        {% for variant in variants_list %}
+            <li>
+                <strong>Title:</strong> {{ variant.product.title }} : {{ variant.title }}<br>
+                <strong>Available for Sale:</strong> {{ variant.available_for_sale }}<br>
+                <strong>Created At:</strong> {{ variant.created_at }}<br>
+                <strong>Updated At:</strong> {{ variant.updated_at }}<br>
+                <strong>Price:</strong> {{ variant.price }}<br>
+                <strong>Image:</strong> <img src="{{ variant.image.source.url }}"><br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

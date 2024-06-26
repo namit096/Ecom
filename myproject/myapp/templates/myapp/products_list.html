@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #f9f9f9;
+        }
+        strong {
+            font-weight: bold;
+        }
+        .image-list {
+            display: flex;  /* Use flexbox to layout images horizontally */
+            flex-wrap: wrap; /* Allow wrapping of images to multiple lines if necessary */
+            margin-top: 10px;
+        }
+        .image-list img {
+            max-width: 100px; /* Limit image width for uniform display */
+            margin-right: 10px; /* Add space between images */
+            margin-bottom: 10px; /* Add space below each row of images */
+            border: 1px solid #ccc; /* Add a border around each image */
+            border-radius: 5px; /* Rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <h1>List of My Products</h1>
+    <ul>
+        {% for product in products_list %}
+            <li>
+                <strong>Title:</strong> {{ product.title }}<br>
+                <strong>Description:</strong> {{ product.description }}<br>
+                <strong>Created At:</strong> {{ product.created_at }}<br>
+                <strong>Updated At:</strong> {{ product.updated_at }}<br>
+                <strong>Images:</strong>
+                
+                <div class="image-list">
+                    {% for variant in product.variants.all %}
+                        <img src="{{ variant.image.source.url }}" alt="{{ variant.image.alt_text }}">
+                    {% endfor %}
+                </div>
+                
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

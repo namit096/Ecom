@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th><a href="{% url 'Product_dict' %}">Product List</a></th>
+                <th><a href="{% url 'Variant_dict' %}">Variant List</a></th>
+            </tr>
+        </thead>
+        
+    </table>
+</body>
+</html>
